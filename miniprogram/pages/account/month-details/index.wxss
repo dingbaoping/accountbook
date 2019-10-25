@@ -1,0 +1,93 @@
+/**index.wxss**/
+
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.section{
+  display: flex;
+  flex-direction: column;
+}
+.title-time{
+  font-size: 28rpx;
+  color: #888;
+  margin-top: 10rpx;
+  margin-left: 30rpx;
+}
+.list{
+  width: 100%;
+   display: flex;
+  flex-direction: column;
+}
+.list-item-box{
+  border-top:1px solid #ededed;
+  background: #fff;
+  padding: 20rpx 0 ;
+}
+.list-item{
+   border-bottom:1px solid #ededed;
+   margin-left: 30rpx;
+   
+}
+.list-item:nth-last-of-type(1){
+  border-bottom:0;
+}
+.list-title{
+  margin-left: 30rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+.list-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 32rpx;
+  padding: 0 30rpx ;
+}
+.list-remark{
+  font-size: 28rpx;
+  color: #888;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+.list-date{
+  font-size: 28rpx;
+  color: #888;
+}
+
+.add-btn{
+  position: fixed;
+  bottom: 50px;
+  right: 60rpx;
+}
+.add{
+  color: #888;
+  width: 100rpx;
+  height: 100rpx;
+  background: #fff;
+  font-size: 70rpx;
+  text-align: center;
+  border-radius: 50%;
+  border:2rpx solid rgb(88, 159, 226);
+  box-shadow: rgb(136, 187, 221) 10rpx 10rpx 30rpx 5rpx ;
+}
+
+.no-data{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  color: #888;
+  margin-top: 350rpx;
+}
+.no-data image{
+  width: 100rpx;
+  height: 112rpx;
+  margin-bottom: 20rpx;
+}

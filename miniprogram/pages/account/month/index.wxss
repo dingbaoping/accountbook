@@ -1,0 +1,114 @@
+/**index.wxss**/
+
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.accout-box{
+  width: 100%;
+  padding: 20rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.accout{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1rpx solid rgb(233, 230, 230);
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  background: #fff;
+}
+.accout-title{
+  margin: 0 30rpx;
+  padding: 20rpx 0;
+  font-size: 32rpx;
+  font-weight: bold;
+  border-bottom: 1rpx solid rgb(233, 230, 230);
+}
+.accout-statistics{
+  padding-top: 30rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+}
+.accout-statistics-data{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+.left{
+  border-right: 1rpx solid rgb(233, 230, 230);
+}
+.accout-statistics-data-money{
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.total-box{
+  border-bottom: 1rpx solid rgb(233, 230, 230);
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+  font-size: 28rpx;
+  margin: 0 30rpx;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+}
+.total{
+  font-size: 36rpx;
+}
+
+.more{
+  width: 100%;
+  color: #4fafed;
+  font-size: 28rpx;
+   margin: 0 30rpx;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+}
+
+
+
+.add-btn{
+  position: fixed;
+  bottom: 50px;
+  right: 60rpx;
+}
+.add{
+  color: #888;
+  width: 100rpx;
+  height: 100rpx;
+  background: #fff;
+  font-size: 70rpx;
+  text-align: center;
+  border-radius: 50%;
+  border:2rpx solid rgb(88, 159, 226);
+  box-shadow: rgb(136, 187, 221) 10rpx 10rpx 30rpx 5rpx ;
+}
+
+.no-data{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  color: #888;
+  margin-top: 350rpx;
+}
+.no-data image{
+  width: 100rpx;
+  height: 112rpx;
+  margin-bottom: 20rpx;
+}

@@ -1,0 +1,27 @@
+<!--index.wxml-->
+<view class="section">
+
+  <view class='list' wx:for="{{list}}" wx:key="{{index}}">
+
+    <view class='list-item-box'>
+      <view class='list-item'>
+         <view class='list-title'>{{item.title}}</view>
+          <view class='list-info'>
+            <text class='list-money'>{{item.money}}</text>
+            <text class='list-date'>{{item.create_time}}</text>
+          </view>
+          <view class='list-remark' wx:if="{{item.remark}}">备注：{{item.remark}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='no-data' wx:if="{{list.length==0}}">
+    <image src="../../../images/bg.png"></image>
+    <text>您还没有账单</text>
+  </view>
+
+  <view class='add-btn'>
+    <view class='add' catchtap='addClick'>+</view>
+  </view>
+
+</view>

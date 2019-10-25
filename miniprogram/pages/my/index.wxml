@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<view class="container">
+
+  <!-- 用户 openid -->
+  <view class="userinfo">
+    <view class='userinfo-nickname'>{{userInfo.nickName}}</view>
+    <button 
+      open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo"
+      class="userinfo-avatar"
+      style="background-image: url({{avatarUrl}})"
+    ></button>
+    
+  </view>
+
+ <view class='accout-box'>
+  <view class='accout'>
+    <text class='accout-title'>{{month}}月实时账单</text>
+    <view class='accout-statistics'>
+      <view class='accout-statistics-data left'>
+        <text>总支出</text>
+        <text class='accout-statistics-data-money'>￥{{expenditure}}</text>
+      </view>
+      <view class='accout-statistics-data'>
+        <text>总收入</text>
+        <text class='accout-statistics-data-money'>￥{{income}}</text>
+      </view>
+    </view>
+    <view class='total-box'>
+      <text>总消费：</text>
+      <text class='total'>￥{{total}}</text>
+    </view>
+    <view catchtap='moreClick' class='more'>查看所有月份账单</view>
+  </view>
+ </view>
+
+</view>

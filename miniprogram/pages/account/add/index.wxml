@@ -1,0 +1,27 @@
+<!--pages/account/add/index.wxml-->
+<view class='section'>
+
+<form bindsubmit="formSubmit" bindreset="formReset">
+
+  <text class='section_tilte'>标题</text>
+  <input placeholder="物品名称" name="title" class='input'/>
+
+   <text class='section_tilte'>类型</text>
+   <radio-group bindchange="radioChange" name="type" class='radio'>
+        <radio value="收入" checked="true" />收入
+        <radio value="支出"/>支出
+    </radio-group>
+
+    <text class='section_tilte'>金额</text>
+    <input type='digit' placeholder="输入商品金额" name="money" class="input"/>
+
+    <text class='section_tilte'>备注</text>
+    <textarea placeholder="输入备注" name="remark" class="textarea"/>
+
+   <view class="btn-area">
+      <button form-type="submit" type="primary">添加</button>
+    </view>
+
+  </form>
+
+</view>
