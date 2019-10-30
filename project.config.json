@@ -10,7 +10,7 @@
 	},
 	"appid": "wx5b978e189987e64a",
 	"projectname": "account-book",
-	"libVersion": "2.6.1",
+	"libVersion": "2.9.1",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {

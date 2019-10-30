@@ -7,7 +7,7 @@
       <view class='list-item'>
          <view class='list-title'>{{item.title}}</view>
           <view class='list-info'>
-            <text class='list-money'>{{item.money}}</text>
+            <text class='list-money'>￥ {{item.type=='支出'?'-':'+'}}{{item.money}}</text>
             <text class='list-date'>{{item.create_time}}</text>
           </view>
           <view class='list-remark' wx:if="{{item.remark}}">备注：{{item.remark}}</view>

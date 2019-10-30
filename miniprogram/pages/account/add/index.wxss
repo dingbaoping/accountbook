@@ -7,10 +7,12 @@ page{
   flex-direction: column;
 }
 .section_tilte{
-  margin-top: 20rpx;
   font-size: 28rpx;
   color: #888;
   padding: 20rpx 30rpx;
+}
+.display-block{
+  display: block;
 }
 .input{
   width: 100%;
@@ -22,7 +24,7 @@ page{
   box-sizing: border-box;
   font-size: 32rpx;
 }
-.radio{
+.radio-box{
   padding: 20rpx 30rpx;
   font-size: 28rpx;
 }
@@ -39,4 +41,9 @@ page{
     margin-top: 60rpx;
    padding: 20rpx 30rpx;
    font-size: 32rpx;
+}
+
+.height{
+  display: block;
+  height: 20rpx;
 }

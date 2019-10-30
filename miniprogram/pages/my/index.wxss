@@ -6,39 +6,7 @@ page {
   flex-direction: column;
   justify-content: flex-start;
 }
-.userinfo{
-  position: absolute;
-  top: 10rpx;
-}
 
-/* .userinfo, .uploader, .tunnel {
-  margin-top: 40rpx;
-  height: 140rpx;
-  width: 100%;
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-left: none;
-  border-right: none;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  transition: all 300ms ease;
-} */
-
-.userinfo-avatar {
-  width: 100rpx;
-  height: 100rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-  background-size: cover;
-  background-color: white;
-}
-
-.userinfo-nickname {
-  text-align: center;
-  font-size: 32rpx;
-  color: #007aff;
-}
 
 .accout-box{
   width: 100%;
@@ -59,7 +27,7 @@ page {
 .accout-title{
   margin: 0 30rpx;
   padding: 30rpx 0;
-  font-size: 32rpx;
+  font-size: 30rpx;
   font-weight: bold;
   border-bottom: 1rpx solid rgb(233, 230, 230);
 }
@@ -109,4 +77,109 @@ page {
    margin: 0 30rpx;
   padding: 30rpx 0;
   box-sizing: border-box;
+}
+
+
+
+/* 水波纹 */
+@keyframes move_wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1)
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.55)
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1)
+    }
+}
+
+.userinfo-hearder{
+  width: 750rpx;
+  height: 260rpx;
+  position: relative;
+  top: -2rpx;
+}
+.waveWrapper{
+  width: 750rpx;
+  height: 260rpx;
+}
+
+.waveWrapperInner {
+    position: absolute;
+    top:0;
+    width: 750rpx;
+    overflow: hidden;
+    height: 260rpx;
+    bottom: -1px;
+    background-image: linear-gradient(to top, #4fafed 20%, #152764 80%);
+}
+.bgTop { 
+    z-index: 15;
+    opacity: 0.5;
+}
+.bgMiddle {
+    z-index: 10;
+    opacity: 0.75;
+}
+.bgBottom {
+    z-index: 5;
+}
+.wave {
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+}
+.waveTop {
+    background-size: 50% 100rpx;
+}
+.waveAnimation .waveTop {
+  animation: move-wave 3s;
+   -webkit-animation: move-wave 3s;
+   -webkit-animation-delay: 1s;
+   animation-delay: 1s;
+}
+.waveMiddle {
+    background-size: 50% 120rpx;
+}
+.waveAnimation .waveMiddle {
+    animation: move_wave 10s linear infinite;
+}
+.waveBottom {
+    background-size: 50% 100rpx;
+}
+.waveAnimation .waveBottom {
+    animation: move_wave 15s linear infinite;
+}
+
+/* 头部信息 */
+.userinfo{
+  width: 750rpx;
+  position: absolute;
+  top: 10rpx;
+  z-index: 1000;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.userinfo-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  margin: 20rpx 40rpx;
+  border-radius: 50%;
+  background-size: cover;
+  background-color: white;
+}
+
+.userinfo-nickname {
+  text-align: center;
+  font-size: 32rpx;
+  color: #ffffff;
+}
+
+/* 菜单列表信息 */
+.my-menu{
+  width: 750rpx;
 }

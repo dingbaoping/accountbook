@@ -1,0 +1,29 @@
+
+<view class="cu-timeline">
+  <view class="cu-item text-blue">
+    <view class="bg-gradual-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v1.1.0</view>
+        <view class="cu-tag line-white">2019/03/06</view>
+      </view>
+      <view class="margin-top-sm text-content">
+        <view>1.首页，我的，账单明细模块</view>
+      </view>
+    </view>   
+  </view>
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v2.0.0</view>
+        <view class="cu-tag line-white">2019/10/30</view>
+      </view>
+      <view class="margin-top-sm text-content">
+        <view>1.账单列表倒序，侧滑删除</view>
+        <view>2.账单合计列表倒序</view>
+        <view>3.优化账单列表页面</view>
+        <view>4.优化我的页面</view>
+        <view>5.添加意见反馈模块</view>
+      </view>
+    </view>
+  </view>
+</view>

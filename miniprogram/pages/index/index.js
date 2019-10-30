@@ -1,6 +1,6 @@
 //index.js
 const app = getApp()
-import {find} from "../../utils/request.js";
+import { find, del} from "../../utils/request.js";
 
 Page({
   data: {
@@ -9,15 +9,12 @@ Page({
 
   onLoad: function() {
    
-
     if (!wx.cloud) {
       wx.redirectTo({
         url: '../chooseLib/chooseLib',
       })
       return
     }
-
-    
 
   },
   onShow(){
@@ -26,6 +23,7 @@ Page({
       console.log('列表', res)
 
       // 将相同的date时间数据分为一组
+      var res =res.reverse();
       var map = {},
         dest = [];
       for (var i = 0; i < res.length; i++) {
@@ -56,12 +54,71 @@ Page({
         list: dest
       })
 
-      console.log("打印2", dest)
     })
   },
   addClick(){
     wx.navigateTo({
       url: '/pages/account/add/index',
     })
+  },
+
+  // ListTouch触摸开始
+  ListTouchStart(e) {
+    this.setData({
+      ListTouchStart: e.touches[0].pageX
+    })
+  },
+
+  // ListTouch计算方向
+  ListTouchMove(e) {
+    this.setData({
+      ListTouchDirection: e.touches[0].pageX - this.data.ListTouchStart > 0 ? 'right' : 'left'
+    })
+  },
+
+  // ListTouch计算滚动
+  ListTouchEnd(e) {
+    if (this.data.ListTouchDirection == 'left') {
+      this.setData({
+        modalName: e.currentTarget.dataset.target
+      })
+    } else {
+      this.setData({
+        modalName: null
+      })
+    }
+    this.setData({
+      ListTouchDirection: null
+    })
+  },
+
+  // 删除
+  delectClick(e){
+    console.log('删除', e.currentTarget.dataset.id);
+    let id = e.currentTarget.dataset.id;
+    var _this=this;
+    wx.showModal({
+      title: '提示',
+      content: '这是一个模态弹窗',
+      success(res) {
+        if (res.confirm) {
+
+          del('bills',id, function (res) {
+            console.log('列表', res);
+            _this.onShow();
+            wx.showToast({
+              title: '删除成功',
+              icon: 'success',
+              duration: 2000
+            })
+          })
+
+        } else {
+          console.log('用户点击取消')
+        }
+      }
+    })
+    
+    
   }
 })

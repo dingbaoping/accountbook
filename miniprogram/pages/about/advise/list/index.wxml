@@ -1,0 +1,22 @@
+<!--pages/about/advise/list/index.wxml-->
+
+<view class="cu-card dynamic no-card">
+  <view class="cu-item shadow solid-bottom body-item" wx:for="{{list}}" wx:key="{{item._id}}" data-id="{{item._id}}">
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <view class="cu-avatar round lg" style="background-image:url({{item.advice_avatar_url}});"></view>
+        <view class="content flex-sub">
+          <view>{{item.advice_nick_name}}</view>
+          <view class="text-gray text-sm flex justify-between">{{item.create_time}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="text-content">{{item.content}}</view>
+    <view class="content avatar-files" >
+        <view class="avatar-files-item" wx:for-item="i" wx:for-items="{{item.imagesList}}" wx:key="{{index}}">
+          <image src="{{i.avatar}}" mode="aspectFill"></image>
+        </view>
+    </view>
+  </view>
+</view>
+

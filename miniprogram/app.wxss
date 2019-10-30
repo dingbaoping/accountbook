@@ -5,3 +5,7 @@
   align-items: center;
   box-sizing: border-box;
 } 
+
+
+@import "style/colorui/main.wxss";
+@import "style/colorui/icon.wxss";

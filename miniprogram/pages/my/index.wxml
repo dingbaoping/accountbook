@@ -1,21 +1,66 @@
 <!--index.wxml-->
 <view class="container">
 
-  <!-- 用户 openid -->
-  <view class="userinfo">
-    <view class='userinfo-nickname'>{{userInfo.nickName}}</view>
-    <button 
-      open-type="getUserInfo" 
-      bindgetuserinfo="onGetUserInfo"
-      class="userinfo-avatar"
-      style="background-image: url({{avatarUrl}})"
-    ></button>
-    
+  
+  <view class="userinfo-hearder">
+
+    <!-- 水波纹 -->
+    <view class="waveWrapper waveAnimation">
+      <view class="waveWrapperInner bgTop">
+       <view class="wave waveTop" style="background-image:url('http://cdn.gaoguanjia.com.cn/img/5db7d8434c7c8.png')"></view>
+      </view>
+      <view class="waveWrapperInner bgMiddle">
+        <view class="wave waveMiddle" style="background-image:url('http://cdn.gaoguanjia.com.cn/img/5db7d83c8402d.png')"></view>
+      </view>
+      <view class="waveWrapperInner bgBottom">
+        <view class="wave waveBottom" style="background-image: url('http://cdn.gaoguanjia.com.cn/img/5db7d81e763ca.png')"></view>
+      </view>
+    </view>
+
+    <!-- 用户 openid -->
+    <view class="userinfo">
+        <button 
+        open-type="getUserInfo" 
+        bindgetuserinfo="onGetUserInfo"
+        class="userinfo-avatar"
+        style="background-image: url({{avatarUrl}})"
+      ></button>
+      <view class='userinfo-nickname'>{{userInfo.nickName}}</view>
+    </view>
+
   </view>
 
+  <!-- 菜单列表信息 -->
+  <view class="my-menu">
+    <view class="cu-list menu">
+      <view class="cu-item arrow">
+        <view class="content" hover-class="none" catchtap="arrowClick" data-name="addadvise" open-type="feedback">
+          <text class="cuIcon-writefill text-cyan"></text>
+          <text class="text-grey">意见反馈</text>
+        </view>
+      </view>
+      
+      <view class="cu-item arrow" wx:if="{{openidauto}}">
+        <view class="content" hover-class="none" catchtap="arrowClick" data-name="advise">
+          <text class="cuIcon-creativefill text-orange"></text>
+          <text class="text-grey">反馈信息</text>
+        </view>
+      </view>
+      <view class="cu-item arrow" wx:if="{{openidauto}}">
+        <view class="content" hover-class="none" catchtap="arrowClick" data-name="log">
+          <text class="cuIcon-formfill text-green"></text>
+          <text class="text-grey">日志</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+
+<!-- 账单 -->
  <view class='accout-box'>
   <view class='accout'>
-    <text class='accout-title'>{{month}}月实时账单</text>
+    <text class='accout-title'>截止到{{month}}月实时账单</text>
     <view class='accout-statistics'>
       <view class='accout-statistics-data left'>
         <text>总支出</text>

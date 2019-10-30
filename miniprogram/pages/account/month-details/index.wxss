@@ -68,6 +68,7 @@ page {
   color: #888;
   width: 100rpx;
   height: 100rpx;
+  line-height: 100rpx;
   background: #fff;
   font-size: 70rpx;
   text-align: center;
@@ -91,3 +92,5 @@ page {
   height: 112rpx;
   margin-bottom: 20rpx;
 }
+
+

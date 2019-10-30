@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="section">
 
-  <view class='list' wx:for="{{list}}" wx:key="{{index}}">
+  <!-- <view class='list' wx:for="{{list}}" wx:key="{{index}}">
     <text class='title-time'>{{item.create_time}}</text>
     <view class='list-item-box' wx:for="{{item.data}}" wx:key="{{index}}">
       <view class='list-item'>
@@ -11,6 +11,29 @@
             <text class='list-date'>{{item.time}}</text>
           </view>
           <view class='list-remark' wx:if="{{item.remark}}">备注：{{item.remark}}</view>
+      </view>
+    </view>
+  </view> -->
+
+ 
+  <view class='list' wx:for="{{list}}" wx:key="{{index}}">
+      <text class='title-time'>{{item.create_time}}</text>
+      <view class="cu-list menu-avatar solid-top ">
+      <view class="cu-item solid-bottom {{modalName=='move-box-'+ i._id?'move-cur':''}}" wx:for="{{item.data}}" wx:for-item="i" wx:key="index" bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{i._id}}">
+        <view class="content">
+          <view>{{i.title}}</view>
+          <view class="text-gray text-sm">￥ {{i.type=='支出'?'-':'+'}}{{i.money}}</view>
+          <view class="text-gray text-sm" wx:if="{{i.remark}}">
+            <text class="cuIcon-infofill text-yellow"></text> 备注：{{i.remark}}
+          </view>
+        </view>
+        <view class="action">
+          <view class="text-grey text-xs">{{i.time}}</view>
+        </view>
+        <view class="move">
+          <view class="bg-grey">取消</view>
+          <view class="bg-red" catchtap="delectClick" data-id="{{i._id}}">删除</view>
+        </view>
       </view>
     </view>
   </view>

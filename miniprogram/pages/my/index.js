@@ -1,6 +1,7 @@
 //index.js
 const app = getApp()
 import { add, findWhere } from "../../utils/request.js";
+import formatDateTime from "../../utils/time.js";
 
 Page({
   data: {
@@ -12,6 +13,8 @@ Page({
     expenditure:0.00,
     total:0.00,
     month:1,
+
+    openidauto: false
   },
 
   onLoad: function () {
@@ -19,6 +22,15 @@ Page({
       this.setData({
         openid: app.globalData.openid
       })
+      if (this.data.openid == 'oCp340DJ0KvKrHALYuN5y4_R2PJ0') {
+        this.setData({
+          openidauto: true
+        })
+      } else {
+        this.setData({
+          openidauto: false
+        })
+      }
     }else{
       this.onGetOpenid();
     }
@@ -29,21 +41,6 @@ Page({
       })
       return
     }
-
-
-    var date = new Date();
-    var y = date.getFullYear();
-    var m = date.getMonth() + 1;
-    m = m < 10 ? ('0' + m) : m;
-    var d = date.getDate();
-    d = d < 10 ? ('0' + d) : d;
-    var h = date.getHours();
-    h = h < 10 ? ('0' + h) : h;
-    var minute = date.getMinutes();
-    var second = date.getSeconds();
-    minute = minute < 10 ? ('0' + minute) : minute;
-    second = second < 10 ? ('0' + second) : second;
-    var times = y + '-' + m + '-' + d + ' ' + h + ':' + minute + ':' + second;
 
     // 获取用户信息
     wx.getSetting({
@@ -57,6 +54,8 @@ Page({
                 avatarUrl: res.userInfo.avatarUrl,
                 userInfo: res.userInfo
               })
+              wx.setStorageSync("nick_name", res.userInfo.nickName);
+              wx.setStorageSync("avatar_url", res.userInfo.avatarUrl);
             }
           })
 
@@ -64,6 +63,9 @@ Page({
         }
       }
     })
+    
+    console.log('获取', this.data.openid)
+    
   },
   onShow(){
 
@@ -112,39 +114,88 @@ Page({
     })
   },
 
+  arrowClick(e){
+    console.log('打印跳转', e.currentTarget.dataset);
+    let arrowname = e.currentTarget.dataset.name;
+
+    switch (arrowname) {
+      case 'addadvise':
+        wx.navigateTo({
+          url: '/pages/about/advise/add/index',
+        })
+        break;
+      case 'advise':
+        wx.navigateTo({
+          url: '/pages/about/advise/list/index',
+        })
+        break;
+      case 'addlog':
+        wx.navigateTo({
+          url: '/pages/about/log/add/index',
+        })
+        break;
+      case 'log':
+        wx.navigateTo({
+          url: '/pages/about/log/list/index',
+        })
+        break;
+      default:
+        // 默认代码块
+        break;
+    } 
+
+  },
+
   moreClick(){
     wx.navigateTo({
       url: '/pages/account/month/index',
     })
   },
 
-  onGetUserInfo: function (e) {
-    if (e.detail.userInfo) {
+  onGetUserInfo: function (res) {
+
+    if (res.detail.userInfo) {
       this.setData({
-        avatarUrl: e.detail.userInfo.avatarUrl,
-        userInfo: e.detail.userInfo
+        avatarUrl: res.detail.userInfo.avatarUrl,
+        userInfo: res.detail.userInfo
       })
 
       const data = {
-        avatar_url: res.userInfo.avatarUrl,
-        city: res.userInfo.city,
-        nick_name: res.userInfo.nickName,
-        create_time: times,
-        update_time: times,
+        avatar_url: res.detail.userInfo.avatarUrl,
+        city: res.detail.userInfo.city,
+        nick_name: res.detail.userInfo.nickName,
+        create_time: formatDateTime(),
+        update_time: formatDateTime(),
       }
       add("users", data);
+      wx.setStorageSync("nick_name", res.detail.userInfo.nickName);
+      wx.setStorageSync("avatar_url", res.detail.userInfo.avatarUrl);
 
     }
   },
 
   onGetOpenid: function () {
     // 调用云函数
+    var _this=this;
     wx.cloud.callFunction({
       name: 'sql',
       data: {},
       success: res => {
         console.log('[云函数] [login] user openid: ', res)
-        app.globalData.openid = res.result.userInfo.openId
+        app.globalData.openid = res.result.userInfo.openId;
+        _this.setData({
+          openid: res.result.userInfo.openId
+        })
+        if (_this.data.openid == 'oCp340DJ0KvKrHALYuN5y4_R2PJ0') {
+          _this.setData({
+            openidauto: true
+          })
+        } else {
+          _this.setData({
+            openidauto: false
+          })
+        }
+
       },
       fail: err => {
         console.error('[云函数] [login] 调用失败', err)

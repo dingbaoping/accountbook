@@ -8,8 +8,8 @@ function add(table, data, success, fail){
     data: data,
     success(res) {
       // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
-      console.log("添加成功",res.data);
-      success(res.data);
+      console.log("添加成功",res);
+      success(res);
       
     },
     fail(res) {
@@ -43,6 +43,22 @@ function findWhere(table, data, success, fail) {
     })
 }
 
+// 聚合查询
+function findGroup(table, table1, field, field1, as, success){
+  db.collection(table).aggregate()
+  .lookup({
+    from: table1,
+    localField: field,
+    foreignField: field1,
+    as: as,
+  })
+  .end()
+  .then(res => {
+    console.log(res);
+    success(res);
+  })
+  .catch(err => console.error(err))
+}
   
 
 //数据库更新
@@ -83,4 +99,4 @@ function del(table, id, success, fail) {
   })
 }
 
-export { add, find, findWhere, update,del};
+export { add, findGroup, find, findWhere, update,del};

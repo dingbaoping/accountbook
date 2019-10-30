@@ -1,0 +1,12 @@
+/* pages/about/advise/add/index.wxss */
+.advices-title{
+  margin: 20rpx;
+}
+.button-submit{
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.margin-top{
+  margin-top: 10rpx;
+}

@@ -88,7 +88,7 @@ Page({
       }
 
       _this.setData({
-        list: list
+        list: list.reverse()
       })
 
     }, function () {

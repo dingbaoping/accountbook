@@ -5,7 +5,8 @@ import { findWhere } from "../../../utils/request.js";
 Page({
   data: {
     openid: '',
-    list: []
+    list: [],
+    month:1,
   },
 
   onLoad: function (e) {
@@ -24,9 +25,16 @@ Page({
       return
     }
 
+    this.setData({
+      month: e.month
+    })
+    console.log('打印',e)
+  },
+  onShow() {
+    this.getData();
+  },
+  getData(){
     var _this = this;
-    console.log("你好", e.month);
-    var months = e.month;
     const data = {
       _openid: this.data.openid
     }
@@ -34,21 +42,15 @@ Page({
     findWhere("bills", data, function (res) {
       console.log("打数据", res)
       var monthData = res.filter((value, index, arr) => {
-        return value.create_time.substring(0, 7) == months;
+        return value.create_time.substring(0, 7) == _this.data.month;
       })
 
       _this.setData({
-        list: monthData
+        list: monthData.reverse()
       })
 
     }, function () {
     })
-
-
-
-  },
-  onShow() {
-    
   },
   addClick() {
     wx.navigateTo({

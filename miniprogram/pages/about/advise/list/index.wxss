@@ -1,0 +1,24 @@
+/* pages/about/advise/list/index.wxss */
+
+.avatar-files{
+  width: 750rpx;
+  display: flex;
+  flex-direction: row;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+.body-item{
+  padding-bottom: 30rpx;
+}
+
+.avatar-files-item{
+  width: 160rpx;
+  height: 160rpx;
+  display: block;
+  overflow: hidden
+}
+.avatar-files-item img{
+  width: 100%;
+}

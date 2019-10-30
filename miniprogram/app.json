@@ -1,10 +1,14 @@
 {
-  "pages": [
+  "pages": [ 
     "pages/index/index",
-    "pages/my/index",
     "pages/account/add/index",
     "pages/account/month/index",
     "pages/account/month-details/index",
+    "pages/my/index",
+    "pages/about/advise/add/index",
+    "pages/about/advise/list/index",
+    "pages/about/log/list/index",
+
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
