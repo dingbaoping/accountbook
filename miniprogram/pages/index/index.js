@@ -99,7 +99,7 @@ Page({
     var _this=this;
     wx.showModal({
       title: '提示',
-      content: '这是一个模态弹窗',
+      content: '是否删除？',
       success(res) {
         if (res.confirm) {
 

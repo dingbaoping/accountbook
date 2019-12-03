@@ -1,0 +1,39 @@
+<!--index.wxml-->
+
+<view>
+  <image class="bg-avatar" src="{{now_url}}" mode="cover"></image>
+  <view class="now-weather">
+      <view class="now-weather-left">
+        <image class="now-weather-avatar" src="{{now_weather_pic}}" mode="cover"></image>
+        <text>{{week}}</text>
+      </view>
+      <view class="now-weather-right">
+        <text>{{now_weather}}</text>
+        <text>{{now_air_temperature}}</text>
+        <text>{{now_wind_power}}</text>
+        <text>{{now_wind_direction}}</text>
+      </view>
+  </view>
+
+  <view class="list-weather">
+     <scroll-view scroll-x="true">
+      <view class="list">
+        <view class="list-item" wx:for="{{list}}" wx:key="index">
+          <view class="list-item-body">
+            <text>{{item.daytime}}</text>
+            <text>{{item.day_wind_direction}} {{item.day_wind_power}}</text>
+            <text>{{item.day_air_temperature}}℃</text>
+            <image class="weather-avatar" src="{{item.day_weather_pic}}" mode="cover"></image>
+            <image class="weather-avatar" src="{{item.night_weather_pic}}" mode="cover"></image>
+            <text>{{item.night_air_temperature}}℃</text>
+            <text>{{item.night_wind_direction}} {{item.night_wind_power}}</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+ 
+
+</view>
+
+

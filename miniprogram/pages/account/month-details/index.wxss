@@ -63,6 +63,7 @@ page {
   position: fixed;
   bottom: 50px;
   right: 60rpx;
+  z-index: 100;
 }
 .add{
   color: #888;

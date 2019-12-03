@@ -13,7 +13,7 @@
     </view>
     <view class="text-content">{{item.content}}</view>
     <view class="content avatar-files" >
-        <view class="avatar-files-item" wx:for-item="i" wx:for-items="{{item.imagesList}}" wx:key="{{index}}">
+        <view class="avatar-files-item" wx:for-item="i" wx:for-items="{{item.imagesList}}" wx:key="index">
           <image src="{{i.avatar}}" mode="aspectFill"></image>
         </view>
     </view>

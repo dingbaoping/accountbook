@@ -1,0 +1,77 @@
+/**index.wxss**/
+
+
+.bg-avatar{
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.now-weather{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center; 
+  color: #fff;
+  position: relative;
+  top: 100rpx;
+  left: 0;
+  z-index: 10;
+}
+.now-weather-left{
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+  font-size: 40rpx;
+  font-weight: bold;
+  text-shadow:5px 2px 6px #000;
+}
+.now-weather-avatar{
+  width: 150rpx;
+  height: 150rpx;
+}
+.now-weather-right{
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  line-height: 1.8;
+}
+
+.list-weather{
+  position: relative;
+  top: 220rpx;
+  left: 0;
+  z-index: 10;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #fff;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+   box-shadow: 5px 10px 15px 2px rgba(0,0,0,0.1);
+}
+.list {
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  font-size: 28rpx;
+  color: #fff;
+  
+}
+.list-item{
+  display: flex;
+  flex-direction: column;
+}
+.list-item-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 220rpx;
+}
+.weather-avatar{
+  width: 80rpx;
+  height: 80rpx;
+}

@@ -26,4 +26,16 @@
       </view>
     </view>
   </view>
+  <view class="cu-item text-blue">
+    <view class="bg-blue content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v2.1.0</view>
+        <view class="cu-tag line-white">2019/12/01</view>
+      </view>
+      <view class="margin-top-sm text-content">
+        <view>1.修改删除弹出框提示</view>
+        <view>2.添加天气模块</view>
+      </view>
+    </view>
+  </view>
 </view>

@@ -1,3 +1,4 @@
 {
-  "usingComponents": {}
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTitleText": "日志"
 }

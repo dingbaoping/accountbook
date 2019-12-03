@@ -4,6 +4,7 @@
     "pages/account/add/index",
     "pages/account/month/index",
     "pages/account/month-details/index",
+    "pages/weather/index",
     "pages/my/index",
     "pages/about/advise/add/index",
     "pages/about/advise/list/index",
@@ -33,12 +34,23 @@
         "selectedIconPath": "images/index-active.png"
       },
       {
+        "pagePath": "pages/weather/index",
+        "text": "天气",
+        "iconPath": "images/weather.png",
+        "selectedIconPath": "images/weather-active.png"
+      },
+      {
         "pagePath": "pages/my/index",
         "text": "我的",
         "iconPath": "images/my.png",
         "selectedIconPath": "images/my-active.png"
       }
     ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
   },
   "sitemapLocation": "sitemap.json"
 }
